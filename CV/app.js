@@ -69,8 +69,8 @@ const contentAbout = document.querySelector("#about-me");
 const contentExp = document.querySelector("#experience");
 const contentContact = document.querySelector("#contact");
 
-console.log(navList.children);
-console.log(Object.keys(navList.children));
+// console.log(navList.children);
+// console.log(Object.keys(navList.children));
 
 const keys = Object.keys(navList.children);
 
@@ -79,22 +79,66 @@ keys.forEach(function (key) {
 
   el.addEventListener("click", function (event) {
     const clickedElementText = event.target.innerText;
-
-    let content = null;
+    console.log("clickedElementText", clickedElementText);
+    let content;
     if (clickedElementText === "About Me") {
       content = contentAbout;
+      // contentAbout.classList.add("visible");
+      // contentExp.classList.remove("visible");
+      // contentContact.classList.remove("visible");
     } else if (clickedElementText === "Experience") {
       content = contentExp;
+      // contentAbout.classList.remove("visible");
+      // contentExp.classList.add("visible");
+      // contentContact.classList.remove("visible");
     } else if (clickedElementText === "Contact") {
       content = contentContact;
+      // contentAbout.classList.remove("visible");
+      // contentExp.classList.remove("visible");
+      // contentContact.classList.add("visible");
     }
-    console.log(content.classList);
+    console.log("content", content);
 
-    content.classList.add();
-    content.classList.remove();
+    contentAbout.classList.remove("visible");
+    contentExp.classList.remove("visible");
+    contentContact.classList.remove("visible");
+    content.classList.add("visible");
   });
 });
+/*
+const aboutLink = document.querySelector("#about-link");
+const expLink = document.querySelector("#exp-link");
+const contactLink = document.querySelector("#contact-link");
 
-// Get element
+const fct = function (event) {
+  const clickedElementText = event.target.innerText;
 
-// Ajouter listenener
+  let content;
+  if (clickedElementText === "About Me") {
+    content = contentAbout;
+    // contentAbout.classList.add("visible");
+    // contentExp.classList.remove("visible");
+    // contentContact.classList.remove("visible");
+  } else if (clickedElementText === "Experience") {
+    content = contentExp;
+    // contentAbout.classList.remove("visible");
+    // contentExp.classList.add("visible");
+    // contentContact.classList.remove("visible");
+  } else if (clickedElementText === "Contact") {
+    content = contentContact;
+    // contentAbout.classList.remove("visible");
+    // contentExp.classList.remove("visible");
+    // contentContact.classList.add("visible");
+  }
+  // console.log(content.classList);
+
+  contentAbout.classList.remove("visible");
+  contentExp.classList.remove("visible");
+  contentContact.classList.remove("visible");
+  content.classList.add("visible");
+};
+
+aboutLink.addEventListener("click", fct);
+expLink.addEventListener("click", fct);
+contactLink.addEventListener("click", fct);
+*/
